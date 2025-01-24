@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Sports Predictions1</title>
+ <script src="script.js"></script>
+<!-- Header -->
+    <div class="header">
+        <h1>Free Sports Predictions</h1>
+       <h4> <p>Get the latest match predictions to help with your betting decisions</p></h4>
+    </div>
+    
+<div class="container">
+<h4>Brazil - Paraibano</h4>
+
+<h5><p>Serra Branca ECPB 
+win<br>
+Pombal FC PB
+</p>
+<h4>International Clubs - Club Friendly Games</h4>
+
+<h5>18:30
+FC 1980 Wien.   WIN<br>
+Young Violets Wien<br></p>
+
+<p>19:30 
+SV Leobendorf. Win/draw
+<br>SC Retz</br></p>
+
+<h4>Mexico - Liga MX, Women, Clausura</h4>
+
+<h5>02:00 
+Deportivo Toluca FC.    win/draw
+Queretaro FC </h5></div>
+
+
+
+    
+</div>
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 Free Sports Predictions. All rights reserved.</p>
+    </div>
+ </html>
+
+    <ALOASK-SEPARATE-EDITORS>body {
+    background-image: url('file:///storage/emulated/0/prediction/b40227e090cccdc16ea57db7c31f3e7e.jpg');
+    background-size: cover;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .header{
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            width: 80%;
+            margin: auto;
+        }
+
+        .container{
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            padding: 10px;
+            align-items: center;
+        }
+
+        .match-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: right;
+        }
+
+        .match-details h3 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .match-details p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .match-prediction {
+            font-size: 18px;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 40px;
+        }
+        
+h4{
+    color: green;
+}
+}<ALOASK-SEPARATE-EDITORS>// List of daily HTML files
+const dailyFiles = [
+  "day1.html",
+  "day2.html",
+  "day3.html",
+  "day4.html",
+  "day5.html",
+  "file:///storage/emulated/0/life/day6.html",
+  "day7.html"
+];
+
+// Define a fixed start date (e.g., January 20, 2025)
+const startDate = new Date("2025-20-01");
+
+// Get today's date
+const today = new Date();
+
+// Calculate the difference in days between today and the start date
+const timeDifference = today - startDate; // Difference in milliseconds
+const daysSinceStart = Math.floor(timeDifference / (1000 * 60 * 60 * 24)); // Convert to days
+
+// Use modulus to loop through files (e.g., if there are 7 files)
+const fileIndex = daysSinceStart % dailyFiles.length;
+
+// Get the container element
+const dailyContentContainer = document.getElementById("container");
+
+// Load the corresponding HTML file
+fetch(dailyFiles[fileIndex])
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Failed to load ${dailyFiles[fileIndex]}`);
+    }
+    return response.text();
+  })
+  .then(data => {
+    // Insert the fetched content into the container
+    dailyContentContainer.innerHTML = data;
+  })
+  .catch(error => {
+    console.error("Error loading daily content:", error);
+    dailyContentContainer.textContent = "Failed to load daily content.";
+  });
